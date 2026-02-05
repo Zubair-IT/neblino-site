@@ -97,6 +97,91 @@ body {
     animation: pulse-glow 2s ease-in-out infinite;
   }
   
+  @keyframes nebula-1 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.3;
+    }
+    33% {
+      transform: translate(50px, -30px) scale(1.1);
+      opacity: 0.4;
+    }
+    66% {
+      transform: translate(-30px, 40px) scale(0.9);
+      opacity: 0.35;
+    }
+  }
+  
+  @keyframes nebula-2 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+      opacity: 0.25;
+    }
+    50% {
+      transform: translate(-40px, 50px) scale(1.15) rotate(180deg);
+      opacity: 0.35;
+    }
+  }
+  
+  @keyframes nebula-3 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.2;
+    }
+    40% {
+      transform: translate(60px, -40px) scale(1.2);
+      opacity: 0.3;
+    }
+    80% {
+      transform: translate(-50px, 30px) scale(0.85);
+      opacity: 0.25;
+    }
+  }
+  
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+  
+  .animate-nebula-1 {
+    animation: nebula-1 20s ease-in-out infinite;
+  }
+  
+  .animate-nebula-2 {
+    animation: nebula-2 25s ease-in-out infinite;
+  }
+  
+  .animate-nebula-3 {
+    animation: nebula-3 30s ease-in-out infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+  
   /* Glassmorphism */
   .glass {
     background: rgba(255, 255, 255, 0.05);
