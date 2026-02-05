@@ -156,16 +156,21 @@ export default function Home() {
       <nav className="fixed w-full z-50 backdrop-blur-2xl bg-black/40 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3 group cursor-pointer">
+            <div className="flex items-center space-x-4 group cursor-pointer">
               <div className="relative">
-                <div className="absolute inset-0 blur-lg opacity-75 group-hover:opacity-100 transition-opacity" />
-                <div className="relative w-14 h-14 transform group-hover:scale-110 transition-all duration-500">
+                <div className="absolute inset-0 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
+                <div className="relative w-16 h-16 transform group-hover:scale-110 transition-all duration-500">
                   <img src="/neblino-logo.png" alt="Neblino Labs" className="w-full h-full object-contain drop-shadow-2xl" />
                 </div>
               </div>
-              <span className="text-2xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
-                Neblino Labs
-              </span>
+              <div className="flex flex-col">
+                <span className="text-3xl font-black leading-none bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
+                  Neblino
+                </span>
+                <span className="text-xl font-bold leading-none text-gray-400">
+                  LABS
+                </span>
+              </div>
             </div>
             <div className="hidden md:flex space-x-8">
               {['Home', 'Services', 'Work', 'About', 'Contact'].map((item) => (
@@ -446,13 +451,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-16 mb-16">
             <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-6 group cursor-pointer">
-                <div className="relative w-12 h-12 transform group-hover:scale-110 transition-all duration-500">
+              <div className="flex items-center space-x-4 mb-6 group cursor-pointer">
+                <div className="relative w-14 h-14 transform group-hover:scale-110 transition-all duration-500">
                   <img src="/neblino-logo.png" alt="Neblino Labs" className="w-full h-full object-contain drop-shadow-2xl" />
                 </div>
-                <span className="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Neblino Labs
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-2xl font-black leading-none bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Neblino
+                  </span>
+                  <span className="text-lg font-bold leading-none text-gray-400">
+                    LABS
+                  </span>
+                </div>
               </div>
               <p className="text-gray-400 text-lg mb-8 max-w-md leading-relaxed">
                 We're not just developers. We're digital artists crafting the future, one masterpiece at a time.
