@@ -158,9 +158,9 @@ export default function Home() {
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3 group cursor-pointer">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl blur-lg opacity-75 group-hover:opacity-100 transition-opacity" />
-                <div className="relative w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 rounded-xl flex items-center justify-center transform group-hover:rotate-180 group-hover:scale-110 transition-all duration-500">
-                  <span className="text-2xl font-black">N</span>
+                <div className="absolute inset-0 blur-lg opacity-75 group-hover:opacity-100 transition-opacity" />
+                <div className="relative w-14 h-14 transform group-hover:scale-110 transition-all duration-500">
+                  <img src="/neblino-logo.png" alt="Neblino Labs" className="w-full h-full object-contain drop-shadow-2xl" />
                 </div>
               </div>
               <span className="text-2xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
@@ -447,11 +447,8 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-16 mb-16">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6 group cursor-pointer">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl blur-lg opacity-75" />
-                  <div className="relative w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 rounded-xl flex items-center justify-center">
-                    <span className="text-2xl font-black">N</span>
-                  </div>
+                <div className="relative w-12 h-12 transform group-hover:scale-110 transition-all duration-500">
+                  <img src="/neblino-logo.png" alt="Neblino Labs" className="w-full h-full object-contain drop-shadow-2xl" />
                 </div>
                 <span className="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Neblino Labs
