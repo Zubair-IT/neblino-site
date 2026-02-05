@@ -442,7 +442,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative py-24 border-t border-white/10 z-10">
+      <footer className="relative py-24 border-t border-white/10 z-10 bg-black/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-16 mb-16">
             <div className="md:col-span-2">
