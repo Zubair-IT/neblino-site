@@ -129,12 +129,13 @@ export default function Home() {
       />
 
       {/* Nebula Background Effects */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Animated Nebula Clouds */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] animate-nebula-1" />
-          <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-pink-600/20 rounded-full blur-[100px] animate-nebula-2" />
-          <div className="absolute bottom-1/4 left-1/3 w-[550px] h-[550px] bg-blue-600/15 rounded-full blur-[110px] animate-nebula-3" />
+        <div className="absolute inset-0">
+          <div className="absolute top-[10%] left-[15%] w-[700px] h-[700px] bg-purple-600/20 rounded-full blur-[120px] animate-nebula-1" />
+          <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-pink-600/20 rounded-full blur-[100px] animate-nebula-2" />
+          <div className="absolute bottom-[15%] left-[40%] w-[650px] h-[650px] bg-blue-600/15 rounded-full blur-[110px] animate-nebula-3" />
+          <div className="absolute top-[50%] right-[30%] w-[500px] h-[500px] bg-purple-500/15 rounded-full blur-[100px] animate-nebula-1" style={{animationDelay: '2s'}} />
         </div>
 
         {/* Cursor Magnetic Glow */}
