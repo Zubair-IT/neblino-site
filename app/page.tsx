@@ -437,9 +437,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative py-24 border-t border-white/10 z-10 bg-black/80 backdrop-blur-xl">
+      <footer className="relative py-16 border-t border-white/10 z-10 bg-black/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-16 mb-16">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center mb-6 group cursor-pointer">
                 <div className="relative h-16 w-auto">
@@ -483,8 +483,8 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="pt-8 border-t border-white/10 text-center">
-            <p className="text-gray-400 text-lg">
+          <div className="pt-6 border-t border-white/10 text-center">
+            <p className="text-gray-400 text-sm">
               © 2026 Neblino Labs. Crafted with 💜, ⚡, and pure magic.
             </p>
           </div>
