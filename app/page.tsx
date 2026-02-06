@@ -162,16 +162,21 @@ export default function Home() {
                 <img src="/neblino.png" alt="Neblino Labs" className="h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-105 transition-all duration-300" />
               </div>
             </div>
-            <div className="hidden md:flex space-x-8">
-              {['Home', 'Services', 'Work', 'About', 'Contact'].map((item) => (
+            <div className="hidden md:flex space-x-6 lg:space-x-8">
+              {[
+                { name: 'Home', href: '/' },
+                { name: 'Services', href: '/services' },
+                { name: 'Work', href: '#work' },
+                { name: 'About', href: '#about' },
+                { name: 'Contact', href: '#contact' }
+              ].map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="relative text-gray-300 hover:text-white transition-colors group py-2"
+                  key={item.name}
+                  href={item.href}
+                  className="relative text-gray-300 hover:text-white transition-colors group py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded"
                 >
-                  <span className="relative z-10">{item}</span>
+                  <span className="relative z-10">{item.name}</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 group-hover:w-full transition-all duration-500" />
-                  <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
                 </a>
               ))}
             </div>
