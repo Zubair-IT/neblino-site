@@ -164,8 +164,8 @@ export default function Home() {
             </div>
             <div className="hidden md:flex space-x-6 lg:space-x-8">
               {[
-                { name: 'Home', href: '/' },
-                { name: 'Services', href: '/services' },
+                { name: 'Home', href: '#home' },
+                { name: 'Services', href: '#services' },
                 { name: 'Work', href: '#work' },
                 { name: 'About', href: '#about' },
                 { name: 'Contact', href: '#contact' }
@@ -190,7 +190,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center z-10">
           {/* Floating Badge with Pulse */}
           <div 
@@ -299,7 +299,7 @@ export default function Home() {
       </section>
 
       {/* Services Section with Magnetic Cards */}
-      <section className="relative py-32 z-10">
+      <section id="services" className="relative py-32 z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-24">
             <div className="inline-block mb-4">
