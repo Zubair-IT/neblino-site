@@ -155,13 +155,10 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed w-full z-50 backdrop-blur-2xl bg-black/40 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center h-24">
-            <div className="flex items-center space-x-4 group cursor-pointer">
-              <div className="relative">
-                <div className="absolute inset-0 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
-                <div className="relative h-20 w-auto transform group-hover:scale-105 transition-all duration-500">
-                  <img src="/neblino.png" alt="Neblino Labs" className="h-full w-auto object-contain drop-shadow-2xl" />
-                </div>
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center group cursor-pointer">
+              <div className="relative h-10 w-auto">
+                <img src="/neblino.png" alt="Neblino Labs" className="h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-105 transition-all duration-300" />
               </div>
             </div>
             <div className="hidden md:flex space-x-8">
@@ -443,9 +440,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-16 mb-16">
             <div className="md:col-span-2">
-              <div className="flex items-center space-x-4 mb-6 group cursor-pointer">
-                <div className="relative h-24 w-auto transform group-hover:scale-110 transition-all duration-500">
-                  <img src="/neblino.png" alt="Neblino Labs" className="h-full w-auto object-contain drop-shadow-2xl" />
+              <div className="flex items-center mb-6 group cursor-pointer">
+                <div className="relative h-16 w-auto">
+                  <img src="/neblino.png" alt="Neblino Labs" className="h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-105 transition-all duration-300" />
                 </div>
               </div>
               <p className="text-gray-400 text-lg mb-8 max-w-md leading-relaxed">
