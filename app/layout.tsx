@@ -5,7 +5,8 @@ export const metadata: Metadata = {
   title: "Neblino Labs - Software Development Company",
   description: "Leading software development company delivering innovative solutions",
   icons: {
-    icon: '/neblino.png',
+    icon: '/neblino-fav.png',
+    apple: '/neblino-fav.png',
   },
 };
 
