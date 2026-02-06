@@ -436,44 +436,106 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative py-16 border-t border-white/10 z-10 bg-black/80 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
+      {/* MONSTER Footer with Electric Energy */}
+      <footer className="relative overflow-hidden z-10">
+        {/* Electric Background Effects */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/20 to-black">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(168,85,247,0.15),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(236,72,153,0.15),transparent_50%)]" />
+        </div>
+        
+        {/* Animated Lightning Lines */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-purple-500 to-transparent animate-pulse" />
+          <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-pink-500 to-transparent animate-pulse animation-delay-1000" />
+          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent animate-pulse" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20">
+          {/* Epic CTA Section */}
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6">
+              <div className="relative">
+                <div className="absolute inset-0 blur-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-50 animate-pulse-glow" />
+                <h3 className="relative text-5xl md:text-6xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
+                  Ready to Dominate?
+                </h3>
+              </div>
+            </div>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Join the elite. Build legendary products. Crush the competition.
+            </p>
+            <button className="group relative px-10 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-black text-lg overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
+              <span className="relative z-10 flex items-center space-x-2">
+                <span>Start Building Now</span>
+                <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </button>
+          </div>
+
+          {/* Glowing Divider */}
+          <div className="relative h-px mb-16">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-50 blur-sm" />
+          </div>
+
+          {/* Footer Content Grid */}
+          <div className="grid md:grid-cols-5 gap-12 mb-12">
+            {/* Logo & Description */}
             <div className="md:col-span-2">
-              <div className="flex items-center mb-6 group cursor-pointer">
-                <div className="relative h-16 w-auto">
-                  <img src="/neblino.png" alt="Neblino Labs" className="h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-105 transition-all duration-300" />
+              <div className="group cursor-pointer mb-6">
+                <div className="relative h-14 w-auto inline-block">
+                  <div className="absolute inset-0 blur-xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                  <img src="/neblino.png" alt="Neblino Labs" className="relative h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-110 transition-all duration-500" />
                 </div>
               </div>
-              <p className="text-gray-400 text-lg mb-8 max-w-md leading-relaxed">
-                We're not just developers. We're digital artists crafting the future, one masterpiece at a time.
+              <p className="text-gray-400 text-base mb-8 max-w-sm leading-relaxed">
+                Digital artists. Code wizards. Future builders. We don't follow trends—we create them.
               </p>
-              <div className="flex space-x-4">
-                {['T', 'L', 'G', 'D'].map((social, index) => (
+              
+              {/* Social Links with Glow */}
+              <div className="flex space-x-3">
+                {[
+                  { letter: 'T', label: 'Twitter', color: 'from-blue-500 to-cyan-500' },
+                  { letter: 'L', label: 'LinkedIn', color: 'from-blue-600 to-blue-400' },
+                  { letter: 'G', label: 'GitHub', color: 'from-purple-600 to-pink-600' },
+                  { letter: 'D', label: 'Dribbble', color: 'from-pink-500 to-rose-500' }
+                ].map((social, index) => (
                   <a
                     key={index}
                     href="#"
-                    className="group relative w-12 h-12 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:scale-125 transition-all duration-300"
+                    aria-label={social.label}
+                    className="group relative w-11 h-11 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl flex items-center justify-center hover:border-white/30 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="text-sm font-bold">{social}</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                    <span className="relative z-10 text-sm font-black group-hover:text-white transition-colors">{social.letter}</span>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                    <div className={`absolute -inset-1 bg-gradient-to-br ${social.color} blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300`} />
                   </a>
                 ))}
               </div>
             </div>
             
+            {/* Links Sections */}
             {[
-              { title: 'Services', links: ['Web Dev', 'Mobile Apps', 'Cloud', 'AI/ML'] },
-              { title: 'Company', links: ['About', 'Team', 'Careers', 'Contact'] },
-              { title: 'Resources', links: ['Blog', 'Case Studies', 'Docs', 'Support'] },
+              { title: 'Services', links: ['Web Development', 'Mobile Apps', 'Cloud Solutions', 'AI Integration'] },
+              { title: 'Company', links: ['About Us', 'Our Team', 'Careers', 'Contact'] },
+              { title: 'Resources', links: ['Blog', 'Case Studies', 'Documentation', 'Support'] },
             ].map((category, index) => (
               <div key={index}>
-                <h4 className="font-black text-lg mb-6">{category.title}</h4>
+                <h4 className="font-black text-sm uppercase tracking-wider mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  {category.title}
+                </h4>
                 <ul className="space-y-3">
                   {category.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <a href="#" className="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300">
+                      <a 
+                        href="#" 
+                        className="group text-gray-400 hover:text-white text-sm transition-all duration-300 inline-flex items-center"
+                      >
+                        <span className="w-0 h-px bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2" />
                         {link}
                       </a>
                     </li>
@@ -483,10 +545,22 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="pt-6 border-t border-white/10 text-center">
-            <p className="text-gray-400 text-sm">
-              © 2026 Neblino Labs. Crafted with 💜, ⚡, and pure magic.
-            </p>
+          {/* Bottom Bar with Glow */}
+          <div className="relative pt-8 border-t border-white/10">
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-gray-500 text-sm">
+                © 2026 Neblino Labs. Built with 
+                <span className="inline-block mx-1 animate-pulse">⚡</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-bold">pure energy</span>
+                <span className="inline-block mx-1 animate-pulse">🔥</span>
+              </p>
+              <div className="flex gap-6 text-sm">
+                <a href="#" className="text-gray-500 hover:text-purple-400 transition-colors">Privacy</a>
+                <a href="#" className="text-gray-500 hover:text-pink-400 transition-colors">Terms</a>
+                <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">Cookies</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
