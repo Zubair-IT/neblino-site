@@ -1,11 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
-  const [activeService, setActiveService] = useState(0);
-
   const services = [
     {
       id: 'web-dev',
@@ -151,7 +148,6 @@ export default function ServicesPage() {
               <div
                 key={service.id}
                 className="group relative p-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl hover:bg-white/10 transition-all duration-700 overflow-hidden cursor-pointer"
-                onMouseEnter={() => setActiveService(index)}
               >
                 {/* Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700`} />
