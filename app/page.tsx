@@ -439,16 +439,16 @@ export default function Home() {
       {/* MONSTER Footer with Electric Energy */}
       <footer className="relative overflow-hidden z-10">
         {/* Electric Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/20 to-black">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(168,85,247,0.15),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(236,72,153,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/30 to-black">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(168,85,247,0.2),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(236,72,153,0.2),transparent_50%)]" />
         </div>
         
         {/* Animated Lightning Lines */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-purple-500 to-transparent animate-pulse" />
-          <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-pink-500 to-transparent animate-pulse animation-delay-1000" />
-          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent animate-pulse" />
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-purple-400 to-transparent animate-pulse" />
+          <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-pink-400 to-transparent animate-pulse animation-delay-1000" />
+          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-blue-400 to-transparent animate-pulse" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20">
@@ -456,30 +456,31 @@ export default function Home() {
           <div className="text-center mb-16">
             <div className="inline-block mb-6">
               <div className="relative">
-                <div className="absolute inset-0 blur-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-50 animate-pulse-glow" />
-                <h3 className="relative text-5xl md:text-6xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
+                <div className="absolute inset-0 blur-3xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-60 animate-pulse-glow" />
+                <h3 className="relative text-5xl md:text-7xl font-black bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent animate-gradient drop-shadow-2xl">
                   Ready to Dominate?
                 </h3>
               </div>
             </div>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto font-medium">
               Join the elite. Build legendary products. Crush the competition.
             </p>
-            <button className="group relative px-10 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-black text-lg overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
+            <button className="group relative px-12 py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-black text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
               <span className="relative z-10 flex items-center space-x-2">
                 <span>Start Building Now</span>
-                <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
           </div>
 
           {/* Glowing Divider */}
           <div className="relative h-px mb-16">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-50 blur-sm" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-70 blur-sm" />
           </div>
 
           {/* Footer Content Grid */}
@@ -488,31 +489,31 @@ export default function Home() {
             <div className="md:col-span-2">
               <div className="group cursor-pointer mb-6">
                 <div className="relative h-14 w-auto inline-block">
-                  <div className="absolute inset-0 blur-xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                  <div className="absolute inset-0 blur-2xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
                   <img src="/neblino.png" alt="Neblino Labs" className="relative h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-110 transition-all duration-500" />
                 </div>
               </div>
-              <p className="text-gray-400 text-base mb-8 max-w-sm leading-relaxed">
+              <p className="text-gray-200 text-base mb-8 max-w-sm leading-relaxed font-medium">
                 Digital artists. Code wizards. Future builders. We don't follow trends—we create them.
               </p>
               
               {/* Social Links with Glow */}
               <div className="flex space-x-3">
                 {[
-                  { letter: 'T', label: 'Twitter', color: 'from-blue-500 to-cyan-500' },
+                  { letter: 'T', label: 'Twitter', color: 'from-blue-500 to-cyan-400' },
                   { letter: 'L', label: 'LinkedIn', color: 'from-blue-600 to-blue-400' },
-                  { letter: 'G', label: 'GitHub', color: 'from-purple-600 to-pink-600' },
-                  { letter: 'D', label: 'Dribbble', color: 'from-pink-500 to-rose-500' }
+                  { letter: 'G', label: 'GitHub', color: 'from-purple-600 to-pink-500' },
+                  { letter: 'D', label: 'Dribbble', color: 'from-pink-500 to-rose-400' }
                 ].map((social, index) => (
                   <a
                     key={index}
                     href="#"
                     aria-label={social.label}
-                    className="group relative w-11 h-11 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl flex items-center justify-center hover:border-white/30 transition-all duration-300 overflow-hidden"
+                    className="group relative w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl flex items-center justify-center hover:border-white/40 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="relative z-10 text-sm font-black group-hover:text-white transition-colors">{social.letter}</span>
+                    <span className="relative z-10 text-sm font-black text-white group-hover:scale-110 transition-transform">{social.letter}</span>
                     <div className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                    <div className={`absolute -inset-1 bg-gradient-to-br ${social.color} blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300`} />
+                    <div className={`absolute -inset-1 bg-gradient-to-br ${social.color} blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300`} />
                   </a>
                 ))}
               </div>
@@ -520,12 +521,12 @@ export default function Home() {
             
             {/* Links Sections */}
             {[
-              { title: 'Services', links: ['Web Development', 'Mobile Apps', 'Cloud Solutions', 'AI Integration'] },
-              { title: 'Company', links: ['About Us', 'Our Team', 'Careers', 'Contact'] },
-              { title: 'Resources', links: ['Blog', 'Case Studies', 'Documentation', 'Support'] },
+              { title: 'SERVICES', links: ['Web Development', 'Mobile Apps', 'Cloud Solutions', 'AI Integration'] },
+              { title: 'COMPANY', links: ['About Us', 'Our Team', 'Careers', 'Contact'] },
+              { title: 'RESOURCES', links: ['Blog', 'Case Studies', 'Documentation', 'Support'] },
             ].map((category, index) => (
               <div key={index}>
-                <h4 className="font-black text-sm uppercase tracking-wider mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h4 className="font-black text-xs uppercase tracking-widest mb-6 text-white">
                   {category.title}
                 </h4>
                 <ul className="space-y-3">
@@ -533,9 +534,9 @@ export default function Home() {
                     <li key={linkIndex}>
                       <a 
                         href="#" 
-                        className="group text-gray-400 hover:text-white text-sm transition-all duration-300 inline-flex items-center"
+                        className="group text-gray-300 hover:text-white text-sm transition-all duration-300 inline-flex items-center font-medium"
                       >
-                        <span className="w-0 h-px bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2" />
+                        <span className="w-0 h-px bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2" />
                         {link}
                       </a>
                     </li>
@@ -546,19 +547,19 @@ export default function Home() {
           </div>
           
           {/* Bottom Bar with Glow */}
-          <div className="relative pt-8 border-t border-white/10">
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
+          <div className="relative pt-8 border-t border-white/20">
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-70" />
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-300 text-sm font-medium">
                 © 2026 Neblino Labs. Built with 
-                <span className="inline-block mx-1 animate-pulse">⚡</span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-bold">pure energy</span>
-                <span className="inline-block mx-1 animate-pulse">🔥</span>
+                <span className="inline-block mx-1 animate-pulse text-yellow-400">⚡</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 font-black">pure energy</span>
+                <span className="inline-block mx-1 animate-pulse text-orange-400">🔥</span>
               </p>
-              <div className="flex gap-6 text-sm">
-                <a href="#" className="text-gray-500 hover:text-purple-400 transition-colors">Privacy</a>
-                <a href="#" className="text-gray-500 hover:text-pink-400 transition-colors">Terms</a>
-                <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">Cookies</a>
+              <div className="flex gap-6 text-sm font-medium">
+                <a href="#" className="text-gray-300 hover:text-purple-300 transition-colors">Privacy</a>
+                <a href="#" className="text-gray-300 hover:text-pink-300 transition-colors">Terms</a>
+                <a href="#" className="text-gray-300 hover:text-blue-300 transition-colors">Cookies</a>
               </div>
             </div>
           </div>
