@@ -160,15 +160,13 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute inset-0 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
                 <div className="relative w-16 h-16 transform group-hover:scale-110 transition-all duration-500">
-                  <img src="/neblino-logo.png" alt="Neblino Labs" className="w-full h-full object-contain drop-shadow-2xl" />
+                  <img src="/neblino.png" alt="Neblino Labs" className="w-full h-full object-contain drop-shadow-2xl" />
                 </div>
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black leading-none bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
-                  Neblino
                 </span>
                 <span className="text-xl font-bold leading-none text-gray-400">
-                  LABS
                 </span>
               </div>
             </div>
@@ -453,16 +451,16 @@ export default function Home() {
             <div className="md:col-span-2">
               <div className="flex items-center space-x-4 mb-6 group cursor-pointer">
                 <div className="relative w-14 h-14 transform group-hover:scale-110 transition-all duration-500">
-                  <img src="/neblino-logo.png" alt="Neblino Labs" className="w-full h-full object-contain drop-shadow-2xl" />
+                  <img src="/neblino.png" alt="Neblino Labs" className="w-full h-full object-contain drop-shadow-2xl" />
                 </div>
-                <div className="flex flex-col">
+                {/* <div className="flex flex-col">
                   <span className="text-2xl font-black leading-none bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     Neblino
                   </span>
                   <span className="text-lg font-bold leading-none text-gray-400">
                     LABS
                   </span>
-                </div>
+                </div> */}
               </div>
               <p className="text-gray-400 text-lg mb-8 max-w-md leading-relaxed">
                 We're not just developers. We're digital artists crafting the future, one masterpiece at a time.
