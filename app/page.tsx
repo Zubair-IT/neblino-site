@@ -399,6 +399,314 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PORTFOLIO - Work Section */}
+      <section id="work" className="relative py-32 z-10 overflow-hidden">
+        {/* Electric Grid Background */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(168,85,247,0.1)_2px,transparent_2px)] bg-[size:50px_50px]" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <div className="inline-block mb-4">
+              <span className="px-4 py-2 bg-pink-500/10 border border-pink-500/20 rounded-full text-pink-400 text-sm font-semibold">
+                OUR WORK
+              </span>
+            </div>
+            <h2 className="text-6xl md:text-8xl font-black mb-8">
+              <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+                Projects That
+              </span>
+              <br />
+              <span className="text-white">Dominate</span>
+            </h2>
+            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
+              Real results. Real impact. Real domination.
+            </p>
+          </div>
+
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'FinTech Revolution',
+                category: 'Web App',
+                description: 'AI-powered financial platform processing $50M+ monthly',
+                metrics: ['10M+ users', '99.9% uptime', '2s load time'],
+                gradient: 'from-purple-600 to-pink-600',
+                image: '💰'
+              },
+              {
+                title: 'HealthTech AI',
+                category: 'Mobile App',
+                description: 'Medical diagnosis app with 95% accuracy rate',
+                metrics: ['500K downloads', '4.9★ rating', '50K daily'],
+                gradient: 'from-green-600 to-blue-600',
+                image: '🏥'
+              },
+              {
+                title: 'E-Commerce Beast',
+                category: 'Full Stack',
+                description: 'Scalable platform handling 100K concurrent users',
+                metrics: ['$10M revenue', '200% growth', '1M products'],
+                gradient: 'from-orange-600 to-pink-600',
+                image: '🛍️'
+              },
+              {
+                title: 'SaaS Unicorn',
+                category: 'Cloud Platform',
+                description: 'B2B platform serving Fortune 500 companies',
+                metrics: ['1000+ clients', '$5M ARR', '99.99% SLA'],
+                gradient: 'from-blue-600 to-purple-600',
+                image: '🦄'
+              }
+            ].map((project, index) => (
+              <div
+                key={index}
+                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all duration-500"
+              >
+                {/* Project Image/Icon */}
+                <div className={`relative h-64 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black/20" />
+                  <div className="relative text-9xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-700">
+                    {project.image}
+                  </div>
+                  <div className="absolute top-4 right-4 px-4 py-2 bg-black/50 backdrop-blur-xl rounded-full text-sm font-bold">
+                    {project.category}
+                  </div>
+                </div>
+
+                {/* Project Info */}
+                <div className="p-8">
+                  <h3 className="text-3xl font-black mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Metrics */}
+                  <div className="flex gap-4 mb-6">
+                    {project.metrics.map((metric, idx) => (
+                      <div key={idx} className="px-3 py-1.5 bg-white/5 rounded-lg border border-white/10">
+                        <span className="text-xs font-bold text-gray-300">{metric}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* View Project Link */}
+                  <div className="flex items-center text-purple-400 group-hover:text-pink-400 transition-colors">
+                    <span className="text-sm font-bold">View Case Study</span>
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Glow Effect */}
+                <div className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 -z-10`} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS Section */}
+      <section id="testimonials" className="relative py-32 z-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <div className="inline-block mb-4">
+              <span className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-sm font-semibold">
+                TESTIMONIALS
+              </span>
+            </div>
+            <h2 className="text-6xl md:text-8xl font-black mb-8">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Clients Love Us
+              </span>
+            </h2>
+            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
+              Don't take our word for it. Here's what legends say.
+            </p>
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Sarah Chen',
+                role: 'CEO, TechCorp',
+                company: 'Fortune 500',
+                quote: 'Neblino Labs transformed our vision into reality. The results? 300% growth in 6 months. Absolute game-changers.',
+                rating: 5,
+                avatar: '👩‍💼'
+              },
+              {
+                name: 'Marcus Rodriguez',
+                role: 'CTO, StartupX',
+                company: 'Series B Startup',
+                quote: 'Best development team we\'ve ever worked with. Fast, professional, and they actually understand business goals.',
+                rating: 5,
+                avatar: '👨‍💻'
+              },
+              {
+                name: 'Emily Watson',
+                role: 'Founder, HealthAI',
+                company: 'YC Backed',
+                quote: 'They didn\'t just build our product—they built our competitive advantage. Worth every penny and more.',
+                rating: 5,
+                avatar: '👩‍⚕️'
+              }
+            ].map((testimonial, index) => (
+              <div
+                key={index}
+                className="group relative p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl hover:bg-white/10 hover:border-white/20 transition-all duration-500"
+              >
+                {/* Quote Icon */}
+                <div className="text-6xl text-purple-500/20 mb-4">"</div>
+
+                {/* Rating Stars */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-xl">★</span>
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-gray-300 leading-relaxed mb-6 text-lg">
+                  {testimonial.quote}
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4 pt-6 border-t border-white/10">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-3xl">
+                    {testimonial.avatar}
+                  </div>
+                  <div>
+                    <div className="font-black text-white">{testimonial.name}</div>
+                    <div className="text-sm text-gray-400">{testimonial.role}</div>
+                    <div className="text-xs text-purple-400">{testimonial.company}</div>
+                  </div>
+                </div>
+
+                {/* Glow on Hover */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT Form Section */}
+      <section id="contact" className="relative py-32 z-10">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-sm font-semibold">
+                GET IN TOUCH
+              </span>
+            </div>
+            <h2 className="text-6xl md:text-8xl font-black mb-8">
+              <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Let's Build
+              </span>
+              <br />
+              <span className="text-white">Together</span>
+            </h2>
+            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
+              Ready to dominate your industry? Let's talk.
+            </p>
+          </div>
+
+          {/* Contact Form */}
+          <div className="relative p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-pink-600/10 to-blue-600/10 rounded-3xl" />
+            
+            <form className="relative space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-bold text-gray-300 mb-2">Name *</label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-300 mb-2">Email *</label>
+                  <input
+                    type="email"
+                    required
+                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none"
+                    placeholder="john@company.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-gray-300 mb-2">Company</label>
+                <input
+                  type="text"
+                  className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none"
+                  placeholder="Your Company"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-gray-300 mb-2">Project Budget</label>
+                <select className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none">
+                  <option value="">Select budget range</option>
+                  <option value="10k-25k">$10K - $25K</option>
+                  <option value="25k-50k">$25K - $50K</option>
+                  <option value="50k-100k">$50K - $100K</option>
+                  <option value="100k+">$100K+</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-gray-300 mb-2">Tell us about your project *</label>
+                <textarea
+                  required
+                  rows={6}
+                  className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none resize-none"
+                  placeholder="Describe your project, goals, and timeline..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="group relative w-full px-12 py-6 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-black text-xl overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-purple-500/50"
+              >
+                <span className="relative z-10 flex items-center justify-center space-x-2">
+                  <span>Send Message</span>
+                  <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+              </button>
+            </form>
+          </div>
+
+          {/* Contact Info */}
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            {[
+              { icon: '📧', label: 'Email', value: 'hello@neblinolabs.com' },
+              { icon: '📱', label: 'Phone', value: '+1 (555) 123-4567' },
+              { icon: '📍', label: 'Location', value: 'San Francisco, CA' }
+            ].map((info, index) => (
+              <div key={index} className="text-center p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all">
+                <div className="text-4xl mb-3">{info.icon}</div>
+                <div className="text-sm text-gray-500 mb-1">{info.label}</div>
+                <div className="font-bold text-white">{info.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Epic CTA Section */}
       <section className="relative py-40 z-10">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
