@@ -185,11 +185,11 @@ export default function Home() {
             </div>
             
             {/* Desktop CTA Button */}
-            <button className="hidden md:block relative group px-6 lg:px-8 py-2.5 lg:py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-sm lg:text-base overflow-hidden">
+            <a href="#contact" className="hidden md:block relative group px-6 lg:px-8 py-2.5 lg:py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-sm lg:text-base overflow-hidden">
               <span className="relative z-10">Let's Talk</span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            </button>
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -225,9 +225,9 @@ export default function Home() {
                 {item.name}
               </a>
             ))}
-            <button className="w-full mt-4 px-8 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-base">
+            <a href="#contact" className="w-full mt-4 px-8 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-base text-center block">
               Let's Talk
-            </button>
+            </a>
           </div>
         </div>
       </nav>
@@ -331,12 +331,12 @@ export default function Home() {
         </div>
 
         {/* Animated Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+        <div className="absolute bottom-8 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow z-20">
           <div className="flex flex-col items-center space-y-2">
-            <div className="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center p-2">
-              <div className="w-1.5 h-3 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full animate-scroll" />
+            <div className="w-6 h-10 sm:w-8 sm:h-12 border-2 border-white/30 rounded-full flex justify-center p-2">
+              <div className="w-1 h-2 sm:w-1.5 sm:h-3 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full animate-scroll" />
             </div>
-            <span className="text-xs text-gray-500 font-medium">Scroll to explore</span>
+            <span className="text-xs text-gray-400 font-medium">Scroll to explore</span>
           </div>
         </div>
       </section>
@@ -860,14 +860,16 @@ export default function Home() {
               {/* Social Links with Glow */}
               <div className="flex space-x-3 justify-center sm:justify-start">
                 {[
-                  { letter: 'T', label: 'Twitter', color: 'from-blue-500 to-cyan-400' },
-                  { letter: 'L', label: 'LinkedIn', color: 'from-blue-600 to-blue-400' },
-                  { letter: 'G', label: 'GitHub', color: 'from-purple-600 to-pink-500' },
-                  { letter: 'D', label: 'Dribbble', color: 'from-pink-500 to-rose-400' }
+                  { letter: 'T', label: 'Twitter', color: 'from-blue-500 to-cyan-400', href: 'https://twitter.com' },
+                  { letter: 'L', label: 'LinkedIn', color: 'from-blue-600 to-blue-400', href: 'https://linkedin.com' },
+                  { letter: 'G', label: 'GitHub', color: 'from-purple-600 to-pink-500', href: 'https://github.com' },
+                  { letter: 'D', label: 'Dribbble', color: 'from-pink-500 to-rose-400', href: 'https://dribbble.com' }
                 ].map((social, index) => (
                   <a
                     key={index}
-                    href="#"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.label}
                     className="group relative w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl flex items-center justify-center hover:border-white/40 transition-all duration-300 overflow-hidden"
                   >
@@ -882,9 +884,33 @@ export default function Home() {
             {/* Links Sections - Horizontal on Mobile */}
             <div className="sm:col-span-2 lg:col-span-3 grid grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
               {[
-                { title: 'SERVICES', links: ['Web Development', 'Mobile Apps', 'Cloud Solutions', 'AI Integration'] },
-                { title: 'COMPANY', links: ['About Us', 'Our Team', 'Careers', 'Contact'] },
-                { title: 'RESOURCES', links: ['Blog', 'Case Studies', 'Documentation', 'Support'] },
+                { 
+                  title: 'SERVICES', 
+                  links: [
+                    { name: 'Web Development', href: '#services' },
+                    { name: 'Mobile Apps', href: '#services' },
+                    { name: 'Cloud Solutions', href: '#services' },
+                    { name: 'AI Integration', href: '#services' }
+                  ] 
+                },
+                { 
+                  title: 'COMPANY', 
+                  links: [
+                    { name: 'Our Work', href: '#work' },
+                    { name: 'Testimonials', href: '#testimonials' },
+                    { name: 'Services', href: '#services' },
+                    { name: 'Contact', href: '#contact' }
+                  ] 
+                },
+                { 
+                  title: 'CONNECT', 
+                  links: [
+                    { name: 'Get in Touch', href: '#contact' },
+                    { name: 'View Projects', href: '#work' },
+                    { name: 'Our Services', href: '#services' },
+                    { name: 'Client Reviews', href: '#testimonials' }
+                  ] 
+                },
               ].map((category, index) => (
                 <div key={index} className="text-center sm:text-left">
                   <h4 className="font-black text-xs uppercase tracking-widest mb-3 sm:mb-4 lg:mb-6 text-white">
@@ -894,11 +920,11 @@ export default function Home() {
                     {category.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
                         <a 
-                          href="#" 
+                          href={link.href}
                           className="group text-gray-300 hover:text-white text-xs sm:text-sm transition-all duration-300 inline-flex items-center font-medium"
                         >
                           <span className="hidden sm:inline w-0 h-px bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2" />
-                          {link}
+                          {link.name}
                         </a>
                       </li>
                     ))}
@@ -919,9 +945,9 @@ export default function Home() {
                 <span className="inline-block mx-1 animate-pulse text-orange-400">🔥</span>
               </p>
               <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium">
-                <a href="#" className="text-gray-300 hover:text-purple-300 transition-colors">Privacy</a>
-                <a href="#" className="text-gray-300 hover:text-pink-300 transition-colors">Terms</a>
-                <a href="#" className="text-gray-300 hover:text-blue-300 transition-colors">Cookies</a>
+                <a href="#contact" className="text-gray-300 hover:text-purple-300 transition-colors">Privacy</a>
+                <a href="#contact" className="text-gray-300 hover:text-pink-300 transition-colors">Terms</a>
+                <a href="#contact" className="text-gray-300 hover:text-blue-300 transition-colors">Contact</a>
               </div>
             </div>
           </div>
