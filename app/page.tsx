@@ -233,8 +233,8 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 px-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 pb-32 sm:pb-40 px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 mb-20 sm:mb-24">
           {/* Floating Badge with Pulse */}
           <div 
             className="inline-flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full mb-6 sm:mb-8 group hover:scale-105 transition-transform duration-300"
@@ -280,7 +280,7 @@ export default function Home() {
           </p>
 
           {/* Epic CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-16 sm:mb-24 px-4">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16 px-4">
             <button className="w-full sm:w-auto group relative px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-base sm:text-lg lg:text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
               <span className="relative z-10 flex items-center justify-center space-x-2">
                 <span>Start Your Project</span>
@@ -330,14 +330,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Animated Scroll Indicator */}
-        <div className="absolute bottom-8 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow z-20">
-          <div className="flex flex-col items-center space-y-2">
-            <div className="w-6 h-10 sm:w-8 sm:h-12 border-2 border-white/30 rounded-full flex justify-center p-2">
+        {/* Animated Scroll Indicator - Positioned ABOVE stats */}
+        <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow z-30">
+          <a href="#services" className="flex flex-col items-center space-y-2 cursor-pointer group">
+            <div className="w-6 h-10 sm:w-7 sm:h-11 md:w-8 md:h-12 border-2 border-white/40 group-hover:border-white/60 rounded-full flex justify-center p-2 transition-colors">
               <div className="w-1 h-2 sm:w-1.5 sm:h-3 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full animate-scroll" />
             </div>
-            <span className="text-xs text-gray-400 font-medium">Scroll to explore</span>
-          </div>
+            <span className="text-xs sm:text-sm text-gray-300 group-hover:text-white font-medium transition-colors">Scroll to explore</span>
+          </a>
         </div>
       </section>
 
