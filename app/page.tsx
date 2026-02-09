@@ -302,7 +302,7 @@ export default function Home() {
           </div>
 
           {/* Animated Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto px-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-5xl mx-auto px-4">
             {[
               { number: '500+', label: 'Projects Launched', icon: '🚀' },
               { number: '300+', label: 'Happy Clients', icon: '😍' },
@@ -311,19 +311,19 @@ export default function Home() {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="group relative p-8 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl hover:bg-white/10 transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer"
+                className="group relative p-4 sm:p-6 lg:p-8 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/10 transform hover:scale-105 lg:hover:scale-110 hover:-translate-y-1 lg:hover:-translate-y-2 transition-all duration-500 cursor-pointer"
                 style={{
                   animationDelay: `${index * 150}ms`,
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl sm:rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
                 <div className="relative">
-                  <div className="text-5xl mb-3 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">{stat.icon}</div>
-                  <div className="text-5xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent mb-2">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl mb-2 sm:mb-3 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">{stat.icon}</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent mb-1 sm:mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">{stat.label}</div>
+                  <div className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-300 transition-colors leading-tight">{stat.label}</div>
                 </div>
               </div>
             ))}
@@ -407,7 +407,7 @@ export default function Home() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="group relative p-6 sm:p-8 lg:p-10 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/10 transition-all duration-700 overflow-hidden cursor-pointer transform hover:scale-105 hover:-rotate-1"
+                className="group relative p-5 sm:p-6 md:p-8 lg:p-10 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/10 transition-all duration-700 overflow-hidden cursor-pointer transform hover:scale-105 hover:-rotate-1 min-h-[280px] sm:min-h-[320px] flex flex-col"
                 style={{ animationDelay: service.delay }}
               >
                 {/* Animated Gradient Background */}
@@ -417,24 +417,26 @@ export default function Home() {
                 <div className={`absolute -inset-1 bg-gradient-to-r ${service.gradient} rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700`} />
                 
                 {/* Icon with 3D Effect */}
-                <div className="relative text-5xl sm:text-6xl lg:text-7xl mb-4 sm:mb-6 lg:mb-8 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 drop-shadow-2xl">
+                <div className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4 md:mb-6 lg:mb-8 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 drop-shadow-2xl flex-shrink-0">
                   {service.icon}
                 </div>
                 
                 {/* Content */}
-                <h3 className="relative text-xl sm:text-2xl lg:text-3xl font-black mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500">
-                  {service.title}
-                </h3>
-                <p className="relative text-gray-400 group-hover:text-gray-300 leading-relaxed text-sm sm:text-base lg:text-lg transition-colors duration-300">
-                  {service.description}
-                </p>
+                <div className="flex-grow flex flex-col">
+                  <h3 className="relative text-lg sm:text-xl md:text-2xl lg:text-3xl font-black mb-2 sm:mb-3 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500">
+                    {service.title}
+                  </h3>
+                  <p className="relative text-gray-400 group-hover:text-gray-300 leading-relaxed text-xs sm:text-sm md:text-base lg:text-lg transition-colors duration-300 flex-grow">
+                    {service.description}
+                  </p>
 
-                {/* Hover Arrow */}
-                <div className="relative mt-4 sm:mt-6 lg:mt-8 flex items-center text-purple-400 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-3 transition-all duration-500">
-                  <span className="text-xs sm:text-sm font-bold">Explore More</span>
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  {/* Hover Arrow */}
+                  <div className="relative mt-3 sm:mt-4 md:mt-6 lg:mt-8 flex items-center text-purple-400 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-3 transition-all duration-500">
+                    <span className="text-xs sm:text-sm font-bold">Explore More</span>
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             ))}
@@ -875,31 +877,33 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Links Sections */}
-            {[
-              { title: 'SERVICES', links: ['Web Development', 'Mobile Apps', 'Cloud Solutions', 'AI Integration'] },
-              { title: 'COMPANY', links: ['About Us', 'Our Team', 'Careers', 'Contact'] },
-              { title: 'RESOURCES', links: ['Blog', 'Case Studies', 'Documentation', 'Support'] },
-            ].map((category, index) => (
-              <div key={index} className="text-center sm:text-left">
-                <h4 className="font-black text-xs uppercase tracking-widest mb-4 sm:mb-6 text-white">
-                  {category.title}
-                </h4>
-                <ul className="space-y-2 sm:space-y-3">
-                  {category.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <a 
-                        href="#" 
-                        className="group text-gray-300 hover:text-white text-xs sm:text-sm transition-all duration-300 inline-flex items-center font-medium"
-                      >
-                        <span className="w-0 h-px bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2" />
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {/* Links Sections - Horizontal on Mobile */}
+            <div className="sm:col-span-2 lg:col-span-3 grid grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+              {[
+                { title: 'SERVICES', links: ['Web Development', 'Mobile Apps', 'Cloud Solutions', 'AI Integration'] },
+                { title: 'COMPANY', links: ['About Us', 'Our Team', 'Careers', 'Contact'] },
+                { title: 'RESOURCES', links: ['Blog', 'Case Studies', 'Documentation', 'Support'] },
+              ].map((category, index) => (
+                <div key={index} className="text-center sm:text-left">
+                  <h4 className="font-black text-xs uppercase tracking-widest mb-3 sm:mb-4 lg:mb-6 text-white">
+                    {category.title}
+                  </h4>
+                  <ul className="space-y-1.5 sm:space-y-2 lg:space-y-3">
+                    {category.links.map((link, linkIndex) => (
+                      <li key={linkIndex}>
+                        <a 
+                          href="#" 
+                          className="group text-gray-300 hover:text-white text-xs sm:text-sm transition-all duration-300 inline-flex items-center font-medium"
+                        >
+                          <span className="hidden sm:inline w-0 h-px bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2" />
+                          {link}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
           
           {/* Bottom Bar with Glow */}
