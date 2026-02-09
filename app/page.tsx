@@ -407,7 +407,7 @@ export default function Home() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="group relative p-5 sm:p-6 md:p-8 lg:p-10 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/10 transition-all duration-700 overflow-hidden cursor-pointer transform hover:scale-105 hover:-rotate-1 min-h-[280px] sm:min-h-[320px] flex flex-col"
+                className="group relative p-5 sm:p-6 md:p-8 lg:p-10 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/10 transition-all duration-700 cursor-pointer transform hover:scale-105 hover:-rotate-1 min-h-[280px] sm:min-h-[320px] flex flex-col"
                 style={{ animationDelay: service.delay }}
               >
                 {/* Animated Gradient Background */}
@@ -416,9 +416,11 @@ export default function Home() {
                 {/* Glow Effect */}
                 <div className={`absolute -inset-1 bg-gradient-to-r ${service.gradient} rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700`} />
                 
-                {/* Icon with 3D Effect */}
-                <div className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4 md:mb-6 lg:mb-8 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 drop-shadow-2xl flex-shrink-0">
-                  {service.icon}
+                {/* Icon with 3D Effect - Fixed overflow issue */}
+                <div className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4 md:mb-6 lg:mb-8 flex-shrink-0 overflow-visible">
+                  <span className="inline-block transform group-hover:scale-110 sm:group-hover:scale-125 group-hover:rotate-6 sm:group-hover:rotate-12 transition-all duration-500 drop-shadow-2xl">
+                    {service.icon}
+                  </span>
                 </div>
                 
                 {/* Content */}
