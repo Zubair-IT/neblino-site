@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from 'react';
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Particle System for Nebula Effect
@@ -155,13 +156,15 @@ export default function Home() {
 
       {/* Navigation */}
       <nav className="fixed w-full z-50 backdrop-blur-2xl bg-black/40 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center group cursor-pointer">
-              <div className="relative h-12 w-auto">
+              <div className="relative h-10 sm:h-12 w-auto">
                 <img src="/neblino.png" alt="Neblino Labs" className="h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-105 transition-all duration-300" />
               </div>
             </div>
+            
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-6 lg:space-x-8">
               {[
                 { name: 'Home', href: '#home' },
@@ -180,78 +183,118 @@ export default function Home() {
                 </a>
               ))}
             </div>
-            <button className="relative group px-8 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold overflow-hidden">
+            
+            {/* Desktop CTA Button */}
+            <button className="hidden md:block relative group px-6 lg:px-8 py-2.5 lg:py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-sm lg:text-base overflow-hidden">
               <span className="relative z-10">Let's Talk</span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden relative w-10 h-10 flex items-center justify-center text-white focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 h-5 flex flex-col justify-between">
+                <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+                <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-300 ${mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+          <div className="px-4 py-6 space-y-4">
+            {[
+              { name: 'Home', href: '#home' },
+              { name: 'Services', href: '#services' },
+              { name: 'Work', href: '#work' },
+              { name: 'About', href: '#about' },
+              { name: 'Contact', href: '#contact' }
+            ].map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-gray-300 hover:text-white transition-colors py-2 text-lg font-medium"
+              >
+                {item.name}
+              </a>
+            ))}
+            <button className="w-full mt-4 px-8 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-base">
+              Let's Talk
             </button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center z-10">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           {/* Floating Badge with Pulse */}
           <div 
-            className="inline-flex items-center space-x-2 px-5 py-2.5 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full mb-8 group hover:scale-105 transition-transform duration-300"
+            className="inline-flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full mb-6 sm:mb-8 group hover:scale-105 transition-transform duration-300"
             style={{
               transform: `translateY(${Math.sin(scrollY * 0.01) * 10}px)`,
             }}
           >
-            <span className="relative flex h-3 w-3">
+            <span className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 shadow-lg shadow-green-500/50"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-green-500 shadow-lg shadow-green-500/50"></span>
             </span>
-            <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Available for new projects</span>
+            <span className="text-xs sm:text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Available for new projects</span>
           </div>
 
           {/* Epic Main Heading with 3D Effect */}
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black mb-8 leading-[0.9] tracking-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8rem] font-black mb-6 sm:mb-8 leading-[0.95] tracking-tight">
             <div className="relative inline-block">
-              <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 blur-3xl opacity-50 animate-pulse-slow" />
-              <span className="relative inline-block animate-gradient bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] transform hover:scale-105 transition-transform duration-300">
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 blur-2xl sm:blur-3xl opacity-50 animate-pulse-slow" />
+              <span className="relative inline-block animate-gradient bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto]">
                 We Build
               </span>
             </div>
             <br />
-            <div className="relative inline-block mt-4">
-              <span className="absolute -inset-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 blur-3xl opacity-60 animate-pulse-glow" />
+            <div className="relative inline-block mt-2 sm:mt-4">
+              <span className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 blur-2xl sm:blur-3xl opacity-60 animate-pulse-glow" />
               <span className="relative bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent drop-shadow-2xl">
                 Digital
               </span>
             </div>
             <br />
-            <div className="relative inline-block mt-4">
-              <span className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 blur-3xl opacity-60 animate-pulse-glow animation-delay-1000" />
+            <div className="relative inline-block mt-2 sm:mt-4">
+              <span className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 blur-2xl sm:blur-3xl opacity-60 animate-pulse-glow animation-delay-1000" />
               <span className="relative bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200 bg-clip-text text-transparent drop-shadow-2xl">
                 Masterpieces
               </span>
             </div>
           </h1>
 
-          <p className="text-xl md:text-3xl text-gray-300 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-300 mb-12 sm:mb-16 max-w-4xl mx-auto leading-relaxed font-light px-4">
             We don't just code. We craft
             <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400"> legendary digital experiences </span>
             that make your competitors wonder how you did it
           </p>
 
           {/* Epic CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-24">
-            <button className="group relative px-10 py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
-              <span className="relative z-10 flex items-center space-x-2">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-16 sm:mb-24 px-4">
+            <button className="w-full sm:w-auto group relative px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-base sm:text-lg lg:text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
+              <span className="relative z-10 flex items-center justify-center space-x-2">
                 <span>Start Your Project</span>
-                <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
-            <button className="group relative px-10 py-5 bg-white/5 backdrop-blur-2xl border-2 border-white/10 rounded-full font-bold text-xl hover:bg-white/10 hover:border-white/20 transform hover:scale-110 transition-all duration-300">
-              <span className="flex items-center space-x-2">
+            <button className="w-full sm:w-auto group relative px-8 sm:px-10 py-4 sm:py-5 bg-white/5 backdrop-blur-2xl border-2 border-white/10 rounded-full font-bold text-base sm:text-lg lg:text-xl hover:bg-white/10 hover:border-white/20 transform hover:scale-110 transition-all duration-300">
+              <span className="flex items-center justify-center space-x-2">
                 <span>View Our Magic</span>
-                <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </span>
@@ -259,7 +302,7 @@ export default function Home() {
           </div>
 
           {/* Animated Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto px-4">
             {[
               { number: '500+', label: 'Projects Launched', icon: '🚀' },
               { number: '300+', label: 'Happy Clients', icon: '😍' },
@@ -299,25 +342,25 @@ export default function Home() {
       </section>
 
       {/* Services Section with Magnetic Cards */}
-      <section id="services" className="relative py-32 z-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-24">
+      <section id="services" className="relative py-16 sm:py-24 lg:py-32 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-24">
             <div className="inline-block mb-4">
-              <span className="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-400 text-sm font-semibold">
+              <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-400 text-xs sm:text-sm font-semibold">
                 OUR SUPERPOWERS
               </span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black mb-8">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 sm:mb-6 lg:mb-8 px-4">
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
                 What We Master
               </span>
             </h2>
-            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto px-4">
               We don't follow trends. We create them.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 icon: '🚀',
@@ -364,32 +407,32 @@ export default function Home() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="group relative p-10 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl hover:bg-white/10 transition-all duration-700 overflow-hidden cursor-pointer transform hover:scale-105 hover:-rotate-1"
+                className="group relative p-6 sm:p-8 lg:p-10 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/10 transition-all duration-700 overflow-hidden cursor-pointer transform hover:scale-105 hover:-rotate-1"
                 style={{ animationDelay: service.delay }}
               >
                 {/* Animated Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 animate-gradient`} />
                 
                 {/* Glow Effect */}
-                <div className={`absolute -inset-1 bg-gradient-to-r ${service.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700`} />
+                <div className={`absolute -inset-1 bg-gradient-to-r ${service.gradient} rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700`} />
                 
                 {/* Icon with 3D Effect */}
-                <div className="relative text-7xl mb-8 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 drop-shadow-2xl">
+                <div className="relative text-5xl sm:text-6xl lg:text-7xl mb-4 sm:mb-6 lg:mb-8 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 drop-shadow-2xl">
                   {service.icon}
                 </div>
                 
                 {/* Content */}
-                <h3 className="relative text-3xl font-black mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500">
+                <h3 className="relative text-xl sm:text-2xl lg:text-3xl font-black mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500">
                   {service.title}
                 </h3>
-                <p className="relative text-gray-400 group-hover:text-gray-300 leading-relaxed text-lg transition-colors duration-300">
+                <p className="relative text-gray-400 group-hover:text-gray-300 leading-relaxed text-sm sm:text-base lg:text-lg transition-colors duration-300">
                   {service.description}
                 </p>
 
                 {/* Hover Arrow */}
-                <div className="relative mt-8 flex items-center text-purple-400 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-3 transition-all duration-500">
-                  <span className="text-sm font-bold">Explore More</span>
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="relative mt-4 sm:mt-6 lg:mt-8 flex items-center text-purple-400 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-3 transition-all duration-500">
+                  <span className="text-xs sm:text-sm font-bold">Explore More</span>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </div>
@@ -400,33 +443,33 @@ export default function Home() {
       </section>
 
       {/* PORTFOLIO - Work Section */}
-      <section id="work" className="relative py-32 z-10 overflow-hidden">
+      <section id="work" className="relative py-16 sm:py-24 lg:py-32 z-10 overflow-hidden">
         {/* Electric Grid Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(168,85,247,0.1)_2px,transparent_2px)] bg-[size:50px_50px]" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-block mb-4">
-              <span className="px-4 py-2 bg-pink-500/10 border border-pink-500/20 rounded-full text-pink-400 text-sm font-semibold">
+              <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-pink-500/10 border border-pink-500/20 rounded-full text-pink-400 text-xs sm:text-sm font-semibold">
                 OUR WORK
               </span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black mb-8">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 sm:mb-6 lg:mb-8 px-4">
               <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
                 Projects That
               </span>
               <br />
               <span className="text-white">Dominate</span>
             </h2>
-            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto px-4">
               Real results. Real impact. Real domination.
             </p>
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 title: 'FinTech Revolution',
@@ -463,32 +506,32 @@ export default function Home() {
             ].map((project, index) => (
               <div
                 key={index}
-                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all duration-500"
+                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden hover:border-white/30 transition-all duration-500"
               >
                 {/* Project Image/Icon */}
-                <div className={`relative h-64 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+                <div className={`relative h-48 sm:h-56 md:h-64 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/20" />
-                  <div className="relative text-9xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-700">
+                  <div className="relative text-6xl sm:text-7xl md:text-8xl lg:text-9xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-700">
                     {project.image}
                   </div>
-                  <div className="absolute top-4 right-4 px-4 py-2 bg-black/50 backdrop-blur-xl rounded-full text-sm font-bold">
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-black/50 backdrop-blur-xl rounded-full text-xs sm:text-sm font-bold">
                     {project.category}
                   </div>
                 </div>
 
                 {/* Project Info */}
-                <div className="p-8">
-                  <h3 className="text-3xl font-black mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500">
+                <div className="p-5 sm:p-6 lg:p-8">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black mb-2 sm:mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-6 leading-relaxed">
+                  <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                     {project.description}
                   </p>
 
                   {/* Metrics */}
-                  <div className="flex gap-4 mb-6">
+                  <div className="flex flex-wrap gap-2 sm:gap-3 lg:gap-4 mb-4 sm:mb-6">
                     {project.metrics.map((metric, idx) => (
-                      <div key={idx} className="px-3 py-1.5 bg-white/5 rounded-lg border border-white/10">
+                      <div key={idx} className="px-2.5 py-1 sm:px-3 sm:py-1.5 bg-white/5 rounded-lg border border-white/10">
                         <span className="text-xs font-bold text-gray-300">{metric}</span>
                       </div>
                     ))}
@@ -496,15 +539,15 @@ export default function Home() {
 
                   {/* View Project Link */}
                   <div className="flex items-center text-purple-400 group-hover:text-pink-400 transition-colors">
-                    <span className="text-sm font-bold">View Case Study</span>
-                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span className="text-xs sm:text-sm font-bold">View Case Study</span>
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
                 </div>
 
                 {/* Glow Effect */}
-                <div className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 -z-10`} />
+                <div className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 -z-10`} />
               </div>
             ))}
           </div>
@@ -512,26 +555,26 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS Section */}
-      <section id="testimonials" className="relative py-32 z-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-20">
+      <section id="testimonials" className="relative py-16 sm:py-24 lg:py-32 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-block mb-4">
-              <span className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-sm font-semibold">
+              <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs sm:text-sm font-semibold">
                 TESTIMONIALS
               </span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black mb-8">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 sm:mb-6 lg:mb-8 px-4">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Clients Love Us
               </span>
             </h2>
-            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto px-4">
               Don't take our word for it. Here's what legends say.
             </p>
           </div>
 
           {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 name: 'Sarah Chen',
@@ -560,37 +603,37 @@ export default function Home() {
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="group relative p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl hover:bg-white/10 hover:border-white/20 transition-all duration-500"
+                className="group relative p-5 sm:p-6 lg:p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/10 hover:border-white/20 transition-all duration-500"
               >
                 {/* Quote Icon */}
-                <div className="text-6xl text-purple-500/20 mb-4">"</div>
+                <div className="text-4xl sm:text-5xl lg:text-6xl text-purple-500/20 mb-3 sm:mb-4">"</div>
 
                 {/* Rating Stars */}
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-3 sm:mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-xl">★</span>
+                    <span key={i} className="text-yellow-400 text-base sm:text-lg lg:text-xl">★</span>
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-gray-300 leading-relaxed mb-6 text-lg">
+                <p className="text-gray-300 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg">
                   {testimonial.quote}
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 pt-6 border-t border-white/10">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-3xl">
+                <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-white/10">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-2xl sm:text-3xl flex-shrink-0">
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <div className="font-black text-white">{testimonial.name}</div>
-                    <div className="text-sm text-gray-400">{testimonial.role}</div>
+                    <div className="font-black text-white text-sm sm:text-base">{testimonial.name}</div>
+                    <div className="text-xs sm:text-sm text-gray-400">{testimonial.role}</div>
                     <div className="text-xs text-purple-400">{testimonial.company}</div>
                   </div>
                 </div>
 
                 {/* Glow on Hover */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10" />
               </div>
             ))}
           </div>
@@ -598,64 +641,64 @@ export default function Home() {
       </section>
 
       {/* CONTACT Form Section */}
-      <section id="contact" className="relative py-32 z-10">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+      <section id="contact" className="relative py-16 sm:py-24 lg:py-32 z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <div className="inline-block mb-4">
-              <span className="px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-sm font-semibold">
+              <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-xs sm:text-sm font-semibold">
                 GET IN TOUCH
               </span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black mb-8">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 sm:mb-6 lg:mb-8 px-4">
               <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Let's Build
               </span>
               <br />
               <span className="text-white">Together</span>
             </h2>
-            <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto px-4">
               Ready to dominate your industry? Let's talk.
             </p>
           </div>
 
           {/* Contact Form */}
-          <div className="relative p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-pink-600/10 to-blue-600/10 rounded-3xl" />
+          <div className="relative p-5 sm:p-8 lg:p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-pink-600/10 to-blue-600/10 rounded-2xl sm:rounded-3xl" />
             
-            <form className="relative space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form className="relative space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className="block text-sm font-bold text-gray-300 mb-2">Name *</label>
+                  <label className="block text-xs sm:text-sm font-bold text-gray-300 mb-2">Name *</label>
                   <input
                     type="text"
                     required
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none"
+                    className="w-full px-4 py-3 sm:px-6 sm:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none text-sm sm:text-base"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-300 mb-2">Email *</label>
+                  <label className="block text-xs sm:text-sm font-bold text-gray-300 mb-2">Email *</label>
                   <input
                     type="email"
                     required
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none"
+                    className="w-full px-4 py-3 sm:px-6 sm:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none text-sm sm:text-base"
                     placeholder="john@company.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-gray-300 mb-2">Company</label>
+                <label className="block text-xs sm:text-sm font-bold text-gray-300 mb-2">Company</label>
                 <input
                   type="text"
-                  className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none"
+                  className="w-full px-4 py-3 sm:px-6 sm:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none text-sm sm:text-base"
                   placeholder="Your Company"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-gray-300 mb-2">Project Budget</label>
-                <select className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none">
+                <label className="block text-xs sm:text-sm font-bold text-gray-300 mb-2">Project Budget</label>
+                <select className="w-full px-4 py-3 sm:px-6 sm:py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none text-sm sm:text-base">
                   <option value="">Select budget range</option>
                   <option value="10k-25k">$10K - $25K</option>
                   <option value="25k-50k">$25K - $50K</option>
@@ -665,22 +708,22 @@ export default function Home() {
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-gray-300 mb-2">Tell us about your project *</label>
+                <label className="block text-xs sm:text-sm font-bold text-gray-300 mb-2">Tell us about your project *</label>
                 <textarea
                   required
                   rows={6}
-                  className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none resize-none"
+                  className="w-full px-4 py-3 sm:px-6 sm:py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all outline-none resize-none text-sm sm:text-base"
                   placeholder="Describe your project, goals, and timeline..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="group relative w-full px-12 py-6 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-black text-xl overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-purple-500/50"
+                className="group relative w-full px-8 py-4 sm:px-12 sm:py-6 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-black text-base sm:text-lg lg:text-xl overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-purple-500/50"
               >
                 <span className="relative z-10 flex items-center justify-center space-x-2">
                   <span>Send Message</span>
-                  <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
@@ -691,16 +734,16 @@ export default function Home() {
           </div>
 
           {/* Contact Info */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
             {[
               { icon: '📧', label: 'Email', value: 'hello@neblinolabs.com' },
               { icon: '📱', label: 'Phone', value: '+1 (555) 123-4567' },
               { icon: '📍', label: 'Location', value: 'San Francisco, CA' }
             ].map((info, index) => (
-              <div key={index} className="text-center p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all">
-                <div className="text-4xl mb-3">{info.icon}</div>
-                <div className="text-sm text-gray-500 mb-1">{info.label}</div>
-                <div className="font-bold text-white">{info.value}</div>
+              <div key={index} className="text-center p-4 sm:p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl sm:rounded-2xl hover:border-white/20 transition-all">
+                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">{info.icon}</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-1">{info.label}</div>
+                <div className="font-bold text-white text-sm sm:text-base">{info.value}</div>
               </div>
             ))}
           </div>
@@ -708,37 +751,37 @@ export default function Home() {
       </section>
 
       {/* Epic CTA Section */}
-      <section className="relative py-40 z-10">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="relative p-16 md:p-24 bg-gradient-to-br from-purple-600/30 via-pink-600/30 to-blue-600/30 backdrop-blur-2xl border border-white/20 rounded-[3rem] overflow-hidden group hover:scale-105 transition-transform duration-700">
+      <section className="relative py-16 sm:py-24 lg:py-40 z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative p-8 sm:p-12 md:p-16 lg:p-24 bg-gradient-to-br from-purple-600/30 via-pink-600/30 to-blue-600/30 backdrop-blur-2xl border border-white/20 rounded-3xl lg:rounded-[3rem] overflow-hidden group hover:scale-105 transition-transform duration-700">
             {/* Animated Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-pink-600/20 to-blue-600/20 animate-gradient" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.1),transparent_50%)] animate-pulse-slow" />
             
             {/* Floating Orbs */}
-            <div className="absolute top-10 right-10 w-32 h-32 bg-purple-500/30 rounded-full blur-3xl animate-float" />
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-pink-500/30 rounded-full blur-3xl animate-float animation-delay-1000" />
+            <div className="absolute top-10 right-10 w-24 h-24 sm:w-32 sm:h-32 bg-purple-500/30 rounded-full blur-3xl animate-float" />
+            <div className="absolute bottom-10 left-10 w-32 h-32 sm:w-40 sm:h-40 bg-pink-500/30 rounded-full blur-3xl animate-float animation-delay-1000" />
             
             <div className="relative z-10 text-center">
-              <h2 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 lg:mb-8 leading-tight px-4">
                 Ready to Create
                 <br />
                 <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
                   Something Legendary?
                 </span>
               </h2>
-              <p className="text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 sm:mb-10 lg:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
                 Let's build the digital masterpiece that will make your competitors wonder what hit them
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <button className="group relative px-12 py-6 bg-white text-black rounded-full font-black text-xl hover:shadow-2xl hover:shadow-white/30 transform hover:scale-110 transition-all duration-300 overflow-hidden">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4">
+                <button className="group relative px-8 py-4 sm:px-10 sm:py-5 lg:px-12 lg:py-6 bg-white text-black rounded-full font-black text-base sm:text-lg lg:text-xl hover:shadow-2xl hover:shadow-white/30 transform hover:scale-110 transition-all duration-300 overflow-hidden">
                   <span className="relative z-10">Let's Talk Business</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                 </button>
-                <button className="group px-12 py-6 bg-white/10 backdrop-blur-2xl border-2 border-white/30 rounded-full font-black text-xl hover:bg-white/20 hover:border-white/50 transform hover:scale-110 transition-all duration-300">
-                  <span className="flex items-center space-x-2">
+                <button className="group px-8 py-4 sm:px-10 sm:py-5 lg:px-12 lg:py-6 bg-white/10 backdrop-blur-2xl border-2 border-white/30 rounded-full font-black text-base sm:text-lg lg:text-xl hover:bg-white/20 hover:border-white/50 transform hover:scale-110 transition-all duration-300">
+                  <span className="flex items-center justify-center space-x-2">
                     <span>See Our Work</span>
-                    <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </span>
@@ -764,24 +807,24 @@ export default function Home() {
           <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-blue-400 to-transparent animate-pulse" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           {/* Epic CTA Section */}
-          <div className="text-center mb-16">
-            <div className="inline-block mb-6">
+          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+            <div className="inline-block mb-4 sm:mb-6">
               <div className="relative">
-                <div className="absolute inset-0 blur-3xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-60 animate-pulse-glow" />
-                <h3 className="relative text-5xl md:text-7xl font-black bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent animate-gradient drop-shadow-2xl">
+                <div className="absolute inset-0 blur-2xl sm:blur-3xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-60 animate-pulse-glow" />
+                <h3 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent animate-gradient drop-shadow-2xl px-4">
                   Ready to Dominate?
                 </h3>
               </div>
             </div>
-            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto font-medium">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-200 mb-6 sm:mb-8 max-w-2xl mx-auto font-medium px-4">
               Join the elite. Build legendary products. Crush the competition.
             </p>
-            <button className="group relative px-12 py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-black text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
+            <button className="group relative px-8 py-4 sm:px-10 sm:py-4 lg:px-12 lg:py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-black text-base sm:text-lg lg:text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
               <span className="relative z-10 flex items-center space-x-2">
                 <span>Start Building Now</span>
-                <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
@@ -791,27 +834,27 @@ export default function Home() {
           </div>
 
           {/* Glowing Divider */}
-          <div className="relative h-px mb-16">
+          <div className="relative h-px mb-10 sm:mb-12 lg:mb-16">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-70" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-70 blur-sm" />
           </div>
 
           {/* Footer Content Grid */}
-          <div className="grid md:grid-cols-5 gap-12 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
             {/* Logo & Description */}
-            <div className="md:col-span-2">
-              <div className="group cursor-pointer mb-6">
-                <div className="relative h-14 w-auto inline-block">
+            <div className="sm:col-span-2 text-center sm:text-left">
+              <div className="group cursor-pointer mb-4 sm:mb-6 inline-block">
+                <div className="relative h-12 sm:h-14 w-auto">
                   <div className="absolute inset-0 blur-2xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
                   <img src="/neblino.png" alt="Neblino Labs" className="relative h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-110 transition-all duration-500" />
                 </div>
               </div>
-              <p className="text-gray-200 text-base mb-8 max-w-sm leading-relaxed font-medium">
+              <p className="text-gray-200 text-sm sm:text-base mb-6 sm:mb-8 max-w-sm leading-relaxed font-medium mx-auto sm:mx-0">
                 Digital artists. Code wizards. Future builders. We don't follow trends—we create them.
               </p>
               
               {/* Social Links with Glow */}
-              <div className="flex space-x-3">
+              <div className="flex space-x-3 justify-center sm:justify-start">
                 {[
                   { letter: 'T', label: 'Twitter', color: 'from-blue-500 to-cyan-400' },
                   { letter: 'L', label: 'LinkedIn', color: 'from-blue-600 to-blue-400' },
@@ -822,9 +865,9 @@ export default function Home() {
                     key={index}
                     href="#"
                     aria-label={social.label}
-                    className="group relative w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl flex items-center justify-center hover:border-white/40 transition-all duration-300 overflow-hidden"
+                    className="group relative w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl flex items-center justify-center hover:border-white/40 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="relative z-10 text-sm font-black text-white group-hover:scale-110 transition-transform">{social.letter}</span>
+                    <span className="relative z-10 text-xs sm:text-sm font-black text-white group-hover:scale-110 transition-transform">{social.letter}</span>
                     <div className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                     <div className={`absolute -inset-1 bg-gradient-to-br ${social.color} blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300`} />
                   </a>
@@ -838,16 +881,16 @@ export default function Home() {
               { title: 'COMPANY', links: ['About Us', 'Our Team', 'Careers', 'Contact'] },
               { title: 'RESOURCES', links: ['Blog', 'Case Studies', 'Documentation', 'Support'] },
             ].map((category, index) => (
-              <div key={index}>
-                <h4 className="font-black text-xs uppercase tracking-widest mb-6 text-white">
+              <div key={index} className="text-center sm:text-left">
+                <h4 className="font-black text-xs uppercase tracking-widest mb-4 sm:mb-6 text-white">
                   {category.title}
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {category.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
                       <a 
                         href="#" 
-                        className="group text-gray-300 hover:text-white text-sm transition-all duration-300 inline-flex items-center font-medium"
+                        className="group text-gray-300 hover:text-white text-xs sm:text-sm transition-all duration-300 inline-flex items-center font-medium"
                       >
                         <span className="w-0 h-px bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2" />
                         {link}
@@ -860,16 +903,16 @@ export default function Home() {
           </div>
           
           {/* Bottom Bar with Glow */}
-          <div className="relative pt-8 border-t border-white/20">
+          <div className="relative pt-6 sm:pt-8 border-t border-white/20">
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-70" />
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-300 text-sm font-medium">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-center md:text-left">
+              <p className="text-gray-300 text-xs sm:text-sm font-medium">
                 © 2026 Neblino Labs. Built with 
                 <span className="inline-block mx-1 animate-pulse text-yellow-400">⚡</span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 font-black">pure energy</span>
                 <span className="inline-block mx-1 animate-pulse text-orange-400">🔥</span>
               </p>
-              <div className="flex gap-6 text-sm font-medium">
+              <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium">
                 <a href="#" className="text-gray-300 hover:text-purple-300 transition-colors">Privacy</a>
                 <a href="#" className="text-gray-300 hover:text-pink-300 transition-colors">Terms</a>
                 <a href="#" className="text-gray-300 hover:text-blue-300 transition-colors">Cookies</a>
