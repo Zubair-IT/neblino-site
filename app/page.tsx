@@ -330,10 +330,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Animated Scroll Indicator - Positioned ABOVE stats */}
-        <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow z-30">
-          <a href="#services" className="flex flex-col items-center space-y-2 cursor-pointer group">
-            <div className="w-6 h-10 sm:w-7 sm:h-11 md:w-8 md:h-12 border-2 border-white/40 group-hover:border-white/60 rounded-full flex justify-center p-2 transition-colors">
+        {/* Animated Scroll Indicator - Fixed to viewport center */}
+        <div className="fixed bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 flex justify-center animate-bounce-slow z-30 pointer-events-none">
+          <a href="#services" className="flex flex-col items-center space-y-2 cursor-pointer group pointer-events-auto">
+            <div className="w-6 h-10 sm:w-7 sm:h-11 md:w-8 md:h-12 border-2 border-white/40 group-hover:border-white/60 rounded-full flex justify-center items-center p-2 transition-colors bg-black/20 backdrop-blur-sm">
               <div className="w-1 h-2 sm:w-1.5 sm:h-3 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full animate-scroll" />
             </div>
             <span className="text-xs sm:text-sm text-gray-300 group-hover:text-white font-medium transition-colors">Scroll to explore</span>
