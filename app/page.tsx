@@ -247,8 +247,8 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-28 pb-32 sm:pb-40 px-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 mb-20 sm:mb-24 mt-8 sm:mt-0">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-28 pb-16 sm:pb-20 px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 mb-12 sm:mb-16 mt-8 sm:mt-0">
           {/* Floating Badge with Pulse */}
           <div 
             className="inline-flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full mb-6 sm:mb-8 group hover:scale-105 transition-transform duration-300"
@@ -365,7 +365,7 @@ export default function Home() {
       </section>
 
       {/* Services Section with Magnetic Cards */}
-      <section id="services" className="relative py-16 sm:py-24 lg:py-32 z-10">
+      <section id="services" className="relative py-20 sm:py-28 lg:py-32 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 lg:mb-24">
             <div className="inline-block mb-4">
@@ -470,7 +470,7 @@ export default function Home() {
       </section>
 
       {/* PORTFOLIO - Work Section */}
-      <section id="work" className="relative py-16 sm:py-24 lg:py-32 z-10 overflow-hidden">
+      <section id="work" className="relative py-20 sm:py-28 lg:py-32 z-10 overflow-hidden">
         {/* Electric Grid Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(168,85,247,0.1)_2px,transparent_2px)] bg-[size:50px_50px]" />
@@ -582,7 +582,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS Section */}
-      <section id="testimonials" className="relative py-16 sm:py-24 lg:py-32 z-10">
+      <section id="testimonials" className="relative py-20 sm:py-28 lg:py-32 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-block mb-4">
@@ -668,7 +668,7 @@ export default function Home() {
       </section>
 
       {/* CONTACT Form Section */}
-      <section id="contact" className="relative py-16 sm:py-24 lg:py-32 z-10">
+      <section id="contact" className="relative py-20 sm:py-28 lg:py-32 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <div className="inline-block mb-4">
@@ -778,7 +778,7 @@ export default function Home() {
       </section>
 
       {/* Epic CTA Section */}
-      <section className="relative py-16 sm:py-24 lg:py-40 z-10">
+      <section className="relative py-20 sm:py-28 lg:py-32 z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative p-8 sm:p-12 md:p-16 lg:p-24 bg-gradient-to-br from-purple-600/30 via-pink-600/30 to-blue-600/30 backdrop-blur-2xl border border-white/20 rounded-3xl lg:rounded-[3rem] overflow-hidden group hover:scale-105 transition-transform duration-700">
             {/* Animated Background */}
