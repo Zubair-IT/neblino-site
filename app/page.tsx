@@ -430,24 +430,24 @@ export default function Home() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="group relative p-5 sm:p-6 md:p-8 lg:p-10 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/10 transition-all duration-700 cursor-pointer transform hover:scale-105 hover:-rotate-1 min-h-[280px] sm:min-h-[320px] flex flex-col"
+                className="group relative p-5 sm:p-6 md:p-8 lg:p-10 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/10 transition-all duration-700 cursor-pointer transform hover:scale-105 hover:-rotate-1 min-h-[280px] sm:min-h-[320px] flex flex-col overflow-hidden"
                 style={{ animationDelay: service.delay }}
               >
                 {/* Animated Gradient Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 animate-gradient`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 animate-gradient rounded-2xl sm:rounded-3xl`} />
                 
-                {/* Glow Effect */}
-                <div className={`absolute -inset-1 bg-gradient-to-r ${service.gradient} rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700`} />
+                {/* Glow Effect - Fixed to match rounded corners */}
+                <div className={`absolute -inset-[2px] bg-gradient-to-r ${service.gradient} rounded-2xl sm:rounded-3xl blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 -z-10`} />
                 
                 {/* Icon with 3D Effect - Fixed overflow issue */}
-                <div className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4 md:mb-6 lg:mb-8 flex-shrink-0 overflow-visible">
+                <div className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4 md:mb-6 lg:mb-8 flex-shrink-0">
                   <span className="inline-block transform group-hover:scale-110 sm:group-hover:scale-125 group-hover:rotate-6 sm:group-hover:rotate-12 transition-all duration-500 drop-shadow-2xl">
                     {service.icon}
                   </span>
                 </div>
                 
                 {/* Content */}
-                <div className="flex-grow flex flex-col">
+                <div className="flex-grow flex flex-col relative z-10">
                   <h3 className="relative text-lg sm:text-xl md:text-2xl lg:text-3xl font-black mb-2 sm:mb-3 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-500">
                     {service.title}
                   </h3>
