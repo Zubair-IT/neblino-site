@@ -6,6 +6,7 @@ export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Particle System for Nebula Effect
@@ -109,7 +110,15 @@ export default function Home() {
     };
 
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      
+      // Hide scroll indicator after scrolling 100px
+      if (currentScrollY > 100) {
+        setShowScrollIndicator(false);
+      } else {
+        setShowScrollIndicator(true);
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -159,9 +168,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center group cursor-pointer">
-              <div className="relative h-10 sm:h-12 w-auto">
-                <img src="/neblino.png" alt="Neblino Labs" className="h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-105 transition-all duration-300" />
-              </div>
+              <a href="#home" onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}>
+                <div className="relative h-10 sm:h-12 w-auto">
+                  <img src="/neblino.png" alt="Neblino Labs" className="h-full w-auto object-contain drop-shadow-2xl transform group-hover:scale-105 transition-all duration-300" />
+                </div>
+              </a>
             </div>
             
             {/* Desktop Menu */}
@@ -330,15 +344,24 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Animated Scroll Indicator - Fixed to viewport center */}
-        <div className="fixed bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 flex justify-center animate-bounce-slow z-30 pointer-events-none">
-          <a href="#services" className="flex flex-col items-center space-y-2 cursor-pointer group pointer-events-auto">
-            <div className="w-6 h-10 sm:w-7 sm:h-11 md:w-8 md:h-12 border-2 border-white/40 group-hover:border-white/60 rounded-full flex justify-center items-center p-2 transition-colors bg-black/20 backdrop-blur-sm">
-              <div className="w-1 h-2 sm:w-1.5 sm:h-3 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full animate-scroll" />
-            </div>
-            <span className="text-xs sm:text-sm text-gray-300 group-hover:text-white font-medium transition-colors">Scroll to explore</span>
-          </a>
-        </div>
+        {/* Animated Scroll Indicator - Only shows at top, hides on scroll */}
+        {showScrollIndicator && (
+          <div className="fixed bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 flex justify-center animate-bounce-slow z-30 pointer-events-none transition-opacity duration-500">
+            <a 
+              href="#services" 
+              className="flex flex-col items-center space-y-2 cursor-pointer group pointer-events-auto"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <div className="w-6 h-10 sm:w-7 sm:h-11 md:w-8 md:h-12 border-2 border-white/40 group-hover:border-white/60 rounded-full flex justify-center items-center p-2 transition-colors bg-black/20 backdrop-blur-sm">
+                <div className="w-1 h-2 sm:w-1.5 sm:h-3 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full animate-scroll" />
+              </div>
+              <span className="text-xs sm:text-sm text-gray-300 group-hover:text-white font-medium transition-colors">Scroll to explore</span>
+            </a>
+          </div>
+        )}
       </section>
 
       {/* Services Section with Magnetic Cards */}
