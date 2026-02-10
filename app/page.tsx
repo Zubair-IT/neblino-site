@@ -32,8 +32,12 @@ export default function Home() {
 
     const colors = ['#A855F7', '#EC4899', '#3B82F6', '#8B5CF6', '#F472B6'];
 
+    // Responsive particle count - fewer on mobile
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 50 : 150; // Reduced from 150 to 50 on mobile
+
     // Create particles
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -65,17 +69,18 @@ export default function Home() {
         ctx.globalAlpha = particle.opacity;
         ctx.fill();
 
-        // Draw connections
+        // Draw connections - reduced distance on mobile for cleaner look
+        const connectionDistance = isMobile ? 80 : 100;
         particles.forEach((otherParticle, otherIndex) => {
           if (index !== otherIndex) {
             const dx = particle.x - otherParticle.x;
             const dy = particle.y - otherParticle.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 100) {
+            if (distance < connectionDistance) {
               ctx.beginPath();
               ctx.strokeStyle = particle.color;
-              ctx.globalAlpha = (1 - distance / 100) * 0.2;
+              ctx.globalAlpha = (1 - distance / connectionDistance) * 0.2;
               ctx.lineWidth = 0.5;
               ctx.moveTo(particle.x, particle.y);
               ctx.lineTo(otherParticle.x, otherParticle.y);
@@ -289,7 +294,7 @@ export default function Home() {
 
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed font-light px-4">
             We don't just code. We craft
-            <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400"> legendary digital experiences </span>
+            <span className="font-bold text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.5)]"> legendary digital experiences </span>
             that make your competitors wonder how you did it
           </p>
 
