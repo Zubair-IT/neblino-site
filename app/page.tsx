@@ -295,7 +295,14 @@ export default function Home() {
 
           {/* Epic CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-10 sm:mb-14 px-4">
-            <button className="w-full sm:w-auto group relative px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-base sm:text-lg lg:text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
+            <a 
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="w-full sm:w-auto group relative px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-base sm:text-lg lg:text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50"
+            >
               <span className="relative z-10 flex items-center justify-center space-x-2">
                 <span>Start Your Project</span>
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -304,15 +311,22 @@ export default function Home() {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
-            <button className="w-full sm:w-auto group relative px-8 sm:px-10 py-4 sm:py-5 bg-white/5 backdrop-blur-2xl border-2 border-white/10 rounded-full font-bold text-base sm:text-lg lg:text-xl hover:bg-white/10 hover:border-white/20 transform hover:scale-110 transition-all duration-300">
+            </a>
+            <a
+              href="#work"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="w-full sm:w-auto group relative px-8 sm:px-10 py-4 sm:py-5 bg-white/5 backdrop-blur-2xl border-2 border-white/10 rounded-full font-bold text-base sm:text-lg lg:text-xl hover:bg-white/10 hover:border-white/20 transform hover:scale-110 transition-all duration-300"
+            >
               <span className="flex items-center justify-center space-x-2">
                 <span>View Our Magic</span>
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </span>
-            </button>
+            </a>
           </div>
 
           {/* Animated Stats */}
