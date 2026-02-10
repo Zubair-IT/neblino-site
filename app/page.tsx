@@ -247,8 +247,8 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 pb-32 sm:pb-40 px-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 mb-20 sm:mb-24">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-28 pb-32 sm:pb-40 px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 mb-20 sm:mb-24 mt-8 sm:mt-0">
           {/* Floating Badge with Pulse */}
           <div 
             className="inline-flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full mb-6 sm:mb-8 group hover:scale-105 transition-transform duration-300"
