@@ -247,11 +247,11 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-28 pb-16 sm:pb-20 px-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 mb-12 sm:mb-16 mt-8 sm:mt-0">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 sm:pt-24 pb-12 sm:pb-16 px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 mb-10 sm:mb-12">
           {/* Floating Badge with Pulse */}
           <div 
-            className="inline-flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full mb-6 sm:mb-8 group hover:scale-105 transition-transform duration-300"
+            className="inline-flex items-center space-x-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full mb-4 sm:mb-6 group hover:scale-105 transition-transform duration-300"
             style={{
               transform: `translateY(${Math.sin(scrollY * 0.01) * 10}px)`,
             }}
@@ -264,7 +264,7 @@ export default function Home() {
           </div>
 
           {/* Epic Main Heading with 3D Effect */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8rem] font-black mb-6 sm:mb-8 leading-[0.95] tracking-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8rem] font-black mb-4 sm:mb-6 leading-[0.95] tracking-tight">
             <div className="relative inline-block">
               <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 blur-2xl sm:blur-3xl opacity-50 animate-pulse-slow" />
               <span className="relative inline-block animate-gradient bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto]">
@@ -287,14 +287,14 @@ export default function Home() {
             </div>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-300 mb-12 sm:mb-16 max-w-4xl mx-auto leading-relaxed font-light px-4">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed font-light px-4">
             We don't just code. We craft
             <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400"> legendary digital experiences </span>
             that make your competitors wonder how you did it
           </p>
 
           {/* Epic CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16 px-4">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-10 sm:mb-14 px-4">
             <button className="w-full sm:w-auto group relative px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full font-bold text-base sm:text-lg lg:text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50">
               <span className="relative z-10 flex items-center justify-center space-x-2">
                 <span>Start Your Project</span>
@@ -316,7 +316,7 @@ export default function Home() {
           </div>
 
           {/* Animated Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-5xl mx-auto px-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-5xl mx-auto px-4 mb-0">
             {[
               { number: '500+', label: 'Projects Launched', icon: '🚀' },
               { number: '300+', label: 'Happy Clients', icon: '😍' },
@@ -365,9 +365,9 @@ export default function Home() {
       </section>
 
       {/* Services Section with Magnetic Cards */}
-      <section id="services" className="relative py-20 sm:py-28 lg:py-32 z-10">
+      <section id="services" className="relative py-16 sm:py-20 lg:py-24 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-24">
+          <div className="text-center mb-10 sm:mb-14 lg:mb-20">
             <div className="inline-block mb-4">
               <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-400 text-xs sm:text-sm font-semibold">
                 OUR SUPERPOWERS
@@ -470,14 +470,14 @@ export default function Home() {
       </section>
 
       {/* PORTFOLIO - Work Section */}
-      <section id="work" className="relative py-20 sm:py-28 lg:py-32 z-10 overflow-hidden">
+      <section id="work" className="relative py-16 sm:py-20 lg:py-24 z-10 overflow-hidden">
         {/* Electric Grid Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(168,85,247,0.1)_2px,transparent_2px)] bg-[size:50px_50px]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="text-center mb-10 sm:mb-14 lg:mb-16">
             <div className="inline-block mb-4">
               <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-pink-500/10 border border-pink-500/20 rounded-full text-pink-400 text-xs sm:text-sm font-semibold">
                 OUR WORK
@@ -582,9 +582,9 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS Section */}
-      <section id="testimonials" className="relative py-20 sm:py-28 lg:py-32 z-10">
+      <section id="testimonials" className="relative py-16 sm:py-20 lg:py-24 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="text-center mb-10 sm:mb-14 lg:mb-16">
             <div className="inline-block mb-4">
               <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs sm:text-sm font-semibold">
                 TESTIMONIALS
@@ -668,9 +668,9 @@ export default function Home() {
       </section>
 
       {/* CONTACT Form Section */}
-      <section id="contact" className="relative py-20 sm:py-28 lg:py-32 z-10">
+      <section id="contact" className="relative py-16 sm:py-20 lg:py-24 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="text-center mb-8 sm:mb-10 lg:mb-12">
             <div className="inline-block mb-4">
               <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-xs sm:text-sm font-semibold">
                 GET IN TOUCH
@@ -778,7 +778,7 @@ export default function Home() {
       </section>
 
       {/* Epic CTA Section */}
-      <section className="relative py-20 sm:py-28 lg:py-32 z-10">
+      <section className="relative py-16 sm:py-20 lg:py-24 z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative p-8 sm:p-12 md:p-16 lg:p-24 bg-gradient-to-br from-purple-600/30 via-pink-600/30 to-blue-600/30 backdrop-blur-2xl border border-white/20 rounded-3xl lg:rounded-[3rem] overflow-hidden group hover:scale-105 transition-transform duration-700">
             {/* Animated Background */}
